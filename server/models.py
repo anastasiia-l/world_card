@@ -6,7 +6,6 @@ class Customer(models.Model):
     DOB = models.DateField('date_of_birth')
     nationality = models.CharField(max_length=60)
     international_passport = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
     email = models.EmailField()
 
 class MedicalRecordCard(models.Model):
@@ -23,14 +22,12 @@ class Insurer(models.Model):
     insurer_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=60)
     contacts = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
+    coordinates = models.CharField(max_length=100)
     email = models.EmailField()
 
 class MedicalInstitution(models.Model):
     institution_id = models.AutoField(primary_key=True)
-    region = models.CharField(max_length=100)
-    country = models.CharField(max_length=80)
-    address = models.CharField(max_length=80)
+    coordinates = models.CharField(max_length=100)
     email = models.EmailField()
 
 class Medic(models.Model):
@@ -39,7 +36,7 @@ class Medic(models.Model):
     specialty = models.CharField(max_length=100)
     full_name = models.CharField(max_length=60)
     status = models.CharField(max_length=50)
-    address = models.CharField(max_length=80)
+    coordinates = models.CharField(max_length=100, default="")
     email = models.EmailField()
 
 class MedicalInsurancePolicy(models.Model):
@@ -49,15 +46,14 @@ class MedicalInsurancePolicy(models.Model):
     policy_type = models.CharField(max_length=80)
     limit = models.DecimalField( max_digits=10, decimal_places=2)
     duration = models.DurationField()
-    region = models.CharField(max_length=100)
+    region = models.CharField(max_length=200)
 
 
 class Call(models.Model):
     call_id = models.AutoField(primary_key=True)
     policy_id = models.ForeignKey(Insurer, on_delete=models.CASCADE)
     call_type = models.CharField(max_length=80)
-    region = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
+    coordinates = models.CharField(max_length=100)
     dateTime = models.DateTimeField()
     complaint = models.CharField(max_length=500)
 
