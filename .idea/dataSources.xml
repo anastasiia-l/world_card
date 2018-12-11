@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="93fc8e65-260a-4e39-9e52-5dedc5907002">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="world_card@localhost" uuid="7209ee33-c81b-4844-87fb-75580de3b36d">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>SQLite</remarks>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\NURE\world_card\db.sqlite3</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/world_card</jdbc-url>
     </data-source>
   </component>
 </project>
